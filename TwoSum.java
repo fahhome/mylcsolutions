@@ -7,6 +7,25 @@ import java.util.Map;
 
 // Here it is given that no number is duplicate so you can use indexMap
 public class TwoSum {
+
+    public static int lcm(int a, int b) {
+        int max, step, lcm = 0;
+        if (a > b) {
+            max = step = a;
+        } else {
+            max = step = b;
+        }
+
+        while (a != 0) {
+            if (max % a == 0 && max % b == 0) {
+                lcm = max;
+                break;
+            }
+            max += step;
+        }
+        return lcm;
+    }
+
     public static int[] twoSum(int[] nums, int target) {
         int[] ans = new int[2];
 

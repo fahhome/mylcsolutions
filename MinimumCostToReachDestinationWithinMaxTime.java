@@ -1,13 +1,14 @@
 package leetcode;
 
 import java.util.ArrayDeque;
+import  java.util.*;
 import java.util.Queue;
 
 // TLE --> Without PQ , normal approach
 // Try with PQ -->
 public class MinimumCostToReachDestinationWithinMaxTime {
 
-    private static int minCost(int maxTime, int[][] edges, int[] passingFees) {
+    static int minCost(int maxTime, int[][] edges, int[] passingFees) {
         int ans = Integer.MAX_VALUE;
 
         int n  = passingFees.length;
@@ -20,7 +21,7 @@ public class MinimumCostToReachDestinationWithinMaxTime {
             adjmatrix[edges[i][0]][edges[i][1]] = edges[i][2];
         }
 
-        Queue<int[]> q = new ArrayDeque<>();
+        PriorityQueue<int[]> q = new PriorityQueue<>((a,b)-> a[1] - b[1]);
 
         q.add(new int[]{0,passingFees[0],0});
 
@@ -32,7 +33,10 @@ public class MinimumCostToReachDestinationWithinMaxTime {
 
             if(curvertex == n-1 && curtime <= maxTime){
                 if(curcost < ans)
-                    ans = curcost;
+                    {
+                        ans = curcost;
+                        //break;
+                    }
             }else{
 
                 for(int i = 0; i < n; i++){
@@ -55,7 +59,7 @@ public class MinimumCostToReachDestinationWithinMaxTime {
 
 
     public static void main(String[] args) {
-        int maxTime = 30;
+        int maxTime = 25;
         int [][]edges = {{ 0, 1, 10},{1,2,10},{2,5,10},{0,3,1},{3,4,10},{4,5,15} };
         int [] passingFees  = { 5, 1, 2, 20, 20, 3};
 
