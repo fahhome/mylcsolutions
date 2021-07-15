@@ -7,29 +7,36 @@ import java.util.*;
 public class WC13P3Matchsticks {
 
     public static boolean is_makesquare(int[] matchsticks,int l1, int l2, int l3, int l4, int index, int len, 
-            Map<State, Boolean> memo){
+            Map<State, Boolean> memo, int sidelen){
 
         
 
         if(l1 == l2 && l2 == l3 && l3 == l4 && l1 != 0 && index >= len)
             return true;
 
-        if(memo.containsKey(new State(index, l1, l2, l3, l4)))
-                return memo.get(new State(index, l1, l2, l3, l4));
+        if(l1 > sidelen || l2 > sidelen || l3 > sidelen || l4 > sidelen){
+            State state = new State(l1, l2, l3, l4);
+            memo.put(state, false);
+            return false;
+        }
+
+        if(memo.containsKey(new State(l1, l2, l3, l4)))
+                return memo.get(new State(l1, l2, l3, l4));
+
 
         boolean ans = false;
 
-        for(int i = index ; i < len ; i++){
-            if(is_makesquare(matchsticks, l1+matchsticks[index], l2, l3, l4, index+1, len, memo) || 
-                    is_makesquare(matchsticks, l1, l2+matchsticks[index], l3, l4, index + 1, len, memo) ||
-                    is_makesquare(matchsticks, l1, l2, l3+matchsticks[index], l4, index+1, len, memo) || 
-                    is_makesquare(matchsticks, l1, l2, l3, l4+matchsticks[index], index+1, len, memo)){
+        // for(int i = index ; i < len ; i++){ --> You don't require this for loop , increases time complexity and wrong logic 
+            if(is_makesquare(matchsticks, l1+matchsticks[index], l2, l3, l4, index+1, len, memo,sidelen) || 
+                    is_makesquare(matchsticks, l1, l2+matchsticks[index], l3, l4, index + 1, len, memo, sidelen) ||
+                    is_makesquare(matchsticks, l1, l2, l3+matchsticks[index], l4, index+1, len, memo, sidelen) || 
+                    is_makesquare(matchsticks, l1, l2, l3, l4+matchsticks[index], index+1, len, memo, sidelen)){
                 ans = true;
             }
-        }
+        //}
 
 
-        State state = new State(index, l1, l2, l3,l4);
+        State state = new State(l1, l2, l3,l4);
         memo.put(state, ans);
 
         return ans;
@@ -39,25 +46,35 @@ public class WC13P3Matchsticks {
 
     public static boolean makesquare(int[] matchsticks) {
         Map<State,Boolean> memo = new HashMap<>();
-        return is_makesquare(matchsticks,0,0,0,0,0, matchsticks.length,memo);
+        int len = matchsticks.length;
+        int perimeter = 0;
+
+        for(int i=0; i < len ; i++){
+            perimeter += matchsticks[i];
+        }
+
+        if(perimeter % 4 != 0)
+            return false;
+        
+        int sidelen = perimeter / 4;
+        
+        return is_makesquare(matchsticks,0,0,0,0,0, matchsticks.length,memo, sidelen);
     }
 
     public static void main(String[] args) {
-        int[] matchsticks = { 6, 13, 1, 17, 13, 13, 2, 4, 19, 14, 3, 1, 5, 3, 12};
+        int[] matchsticks = {6,13,1,17,13,13,2,4,19,14,3,1,5,3,12};
         System.out.println(makesquare(matchsticks));
     }
 
 }
 
 class State {
-    int index; 
     int l1;
     int l2;
     int l3;
     int l4;
 
-    public State(int index, int l1, int l2, int l3, int l4){
-        this.index = index;
+    public State(int l1, int l2, int l3, int l4){
         this.l1 = l1;
         this.l2 = l2;
         this.l3 = l3;
@@ -69,7 +86,6 @@ class State {
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + index;
         result = prime * result + l1;
         result = prime * result + l2;
         result = prime * result + l3;
@@ -86,8 +102,6 @@ class State {
         if (getClass() != obj.getClass())
             return false;
         State other = (State) obj;
-        if (index != other.index)
-            return false;
         if (l1 != other.l1)
             return false;
         if (l2 != other.l2)
@@ -98,5 +112,7 @@ class State {
             return false;
         return true;
     }
+
+    
 
 }
