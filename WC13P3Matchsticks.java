@@ -2,8 +2,9 @@ package leetcode;
 import java.util.*;
 
 
-// After including hashcode() and equals()[ Right Click --> Source] the TLE for some test cases was removed .
+// After including hashcode() and equals()[ Right Click --> Source] the TLE for some test cases were removed .
 // TLE --> [6,13,1,17,13,13,2,4,19,14,3,1,5,3,12]
+// Including the for loop oin line 30 is wrong logic , O(N*4^n) to O(4^n)
 public class WC13P3Matchsticks {
 
     public static boolean is_makesquare(int[] matchsticks,int l1, int l2, int l3, int l4, int index, int len, 
