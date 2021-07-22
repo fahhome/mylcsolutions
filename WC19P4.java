@@ -10,7 +10,30 @@ public class WC19P4 {
     public static int reversePairs(int[] nums) {
         int ans = 0;
         int len  = nums.length;
-        Stack<Integer> stack = new Stack<>();
+
+        Comparator<Integer> cmp = new Comparator<Integer>() {
+
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                // TODO Auto-generated method stub
+                if (o1 > o2)
+                    return 1;
+
+                return -1;
+            }
+
+        };
+
+        Stack<Integer> stack = new Stack<>(){
+            @Override
+            public Integer push(Integer item) {
+                int index = Collections.binarySearch(this, item);
+                if (index < 0)
+                    index = ~index;
+                super.add(index, item);
+                return item;
+            };
+        };
 
         stack.push(nums[0]);
 
@@ -23,16 +46,18 @@ public class WC19P4 {
                 }
             }
 
-            Stack<Integer> temp = new Stack<>();
+            // Stack<Integer> temp = new Stack<>();
 
-            while(!stack.isEmpty()  &&  nums[j] < stack.peek()){
-                temp.push(stack.pop());
-            }
+            // while(!stack.isEmpty()  &&  nums[j] < stack.peek()){
+            //     temp.push(stack.pop());
+            // }
+            // stack.push(nums[j]);
+
+            // while(!temp.isEmpty()){
+            //     stack.push(temp.pop());
+            // }
+
             stack.push(nums[j]);
-
-            while(!temp.isEmpty()){
-                stack.push(temp.pop());
-            }
 
         }
 
