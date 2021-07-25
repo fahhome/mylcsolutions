@@ -1,6 +1,17 @@
 package leetcode;
 import java.util.*;
+
+// IMPORTANT function isSubsequence , eases this problem
 public class WC21P3 {
+
+    // Check if x is a subsequence of y 
+    public static boolean isSubsequence(String x, String y) {
+        int j = 0;
+        for (int i = 0; i < y.length() && j < x.length(); i++)
+            if (x.charAt(j) == y.charAt(i))
+                j++;
+        return j == x.length();
+    }
 
     public static String findLongestWord(String s, List<String> dictionary) {
         String ans = "";
