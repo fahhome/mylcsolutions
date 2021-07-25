@@ -1,6 +1,11 @@
 package leetcode;
 import java.util.*;
 
+
+//where solve(i,operationused) is the maximum SASUM from index i with operationused = true or false
+// TLE because line 24 is not memoized
+// If you directly memoize line 24 with the 2d memo then Wrong Answer
+// If you use 3d memo heap error
 public class MaximumSubarraySumAfterOneOperation {
     public int solve(int index, int cursum, int[] ans, int len, boolean operationUsed, int[] nums, int[][] memo) {
         if (index >= len)
