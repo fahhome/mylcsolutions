@@ -2,6 +2,18 @@ package leetcode;
 
 import java.util.Arrays;
 
+
+
+// Try out all remaining options (that are valid)
+        // for(int i = L - 1; i >= 0; i--) {
+        //     if (this.nums[L - 1 - i] <= rem && (mask&(1 << i)) > 0) {
+        //         if (this.recurse(mask ^ (1 << i), sidesDone)) {
+        //             ans = true;
+        //             break;
+        //         }
+        //     }
+        // }
+
 public class WC13P2 {
 
     static int countBits(int number) {
