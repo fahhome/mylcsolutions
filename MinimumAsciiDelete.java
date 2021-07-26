@@ -17,7 +17,10 @@ public class MinimumAsciiDelete {
 
         List<Character> s1list = new LinkedList<>();
         List<Character> s2list = new LinkedList<>();
-
+        String s = "fahmid";
+        StringBuilder ssb = new StringBuilder(s);
+        StringBuilder t1 = new StringBuilder(ssb.substring(0)).reverse();
+        
 
         for(int i = 0 ; i < l2; i++){
             
