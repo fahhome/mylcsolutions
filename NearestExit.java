@@ -3,6 +3,7 @@ package leetcode;
 import java.util.ArrayDeque;
 import java.util.Queue;
 
+//BFS
 public class NearestExit {
 
     static boolean isSafe(int row, int col, int rows, int cols, char[][] maze) {
