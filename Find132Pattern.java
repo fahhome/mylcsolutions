@@ -1,36 +1,44 @@
 package leetcode;
+import java.util.*;
 
 public class Find132Pattern {
 
-    public static boolean find132pattern(int[] nums) {
-        int len = nums.length;
-        boolean ans = false;
-        int a = 0;
-        int b = 0;
-        int c = 0;
-        int i = 1;
-        while (i < len) {
-            if (nums[i] > nums[i - 1]) {
-                a = nums[i - 1];
-                int j = i + 1;
-                while (j < len && nums[j] > nums[j - 1]) {
-                    j++;
-                }
-                if (j < len) {
-                    b = nums[j - 1];
-                    c = nums[j];
-                }
+    // Note here we are maintening descending stack(0 to size() -1 ) annd not ascending
+    // We are discarding the top of the stack with confidence after comparing with the global minimum.
+    // If it is less than the global minimum at that loop , it cannot be the third element in 132 pattern in the next loops
+     
 
-                if (a < b && b > c) {
-                    ans = true;
-                    break;
-                }
-                i = j - 1;
+    public static boolean find132pattern(int[] nums) {
+        boolean ans = false;
+        int len = nums.length;
+        if (len < 3)
+            return false;
+
+        int[] lowestleft = new int[len];
+        Stack<Integer> stack = new Stack<>();
+
+        lowestleft[0] = nums[0];
+
+        for (int i = 1; i < len; i++) {
+            lowestleft[i] = Math.min(lowestleft[i - 1], nums[i]);
+        }
+
+        // stack.push(nums[len-1]);
+        for (int i = len - 1; i >= 0; i--) {
+            // consider this ith element to be the middle element
+            // the greater elements on the right need not be considered
+            if (nums[i] > lowestleft[i]) {
+                while (!stack.isEmpty() && stack.peek() <= lowestleft[i])
+                    stack.pop();
+
+                if (!stack.isEmpty() && stack.peek() < nums[i])
+                    return true;
+
+                stack.push(nums[i]);
             }
 
-            i++;
-
         }
+
         return ans;
     }
     public static void main(String[] args) {
