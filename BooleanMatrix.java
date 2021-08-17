@@ -4,6 +4,7 @@ import java.util.ArrayDeque;
 import java.util.Queue;
 
 //Accepted
+// 01 Matrix(LC name) 
 public class BooleanMatrix {
 
     static boolean isSafe(int row, int col, int rows, int cols) {
@@ -28,7 +29,7 @@ public class BooleanMatrix {
                     
                     Queue<int[]> q = new ArrayDeque<>();
                     q.add(new int[]{i,j,0});
-                    q.add(new int[]{-1,-1,-1});
+                    q.add(new int[]{-1,-1,-1}); // level end indicator
                     int [][] visited = new int[rows][cols];
                     visited[i][j] =1 ;
 

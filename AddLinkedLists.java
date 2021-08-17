@@ -18,7 +18,7 @@ public class AddLinkedLists {
             }
             ListNode current = new ListNode();
             if ( (l1 != null && l1.next == null && l2 == null) || (l2 != null && l2.next == null && l1 == null)
-                    || (l1!=null && l1.next == null && l2!=null && l2.next == null)) {
+                    || (l1!=null && l1.next == null && l2!=null && l2.next == null)) {// Case of terminating node (Carryover not required in this case)
                 
                 System.out.println("If");
                 int currsum = 0;
