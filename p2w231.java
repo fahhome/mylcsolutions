@@ -3,7 +3,6 @@ package leetcode;
 public class p2w231 {
 
     public String maximumNumber(String num, int[] change) {
-        StringBuilder ans = new StringBuilder();
         StringBuilder sb = new StringBuilder(num);
 
         for(int i = 0; i < num.length(); i++){

@@ -41,6 +41,7 @@ public class MinimumAsciiDelete {
             return 0;
 
         int ans = Integer.MAX_VALUE;
+        // From leftmost bit , the bits are unset to create a new state
         for(int i = totalbits-1 ; i >= 0 ; i-- ){
 
             if((state & (1 << i)) > 0 ){
@@ -56,7 +57,7 @@ public class MinimumAsciiDelete {
                         costfornextdeletion = s2.charAt(totalbits - (l1 + i + 1));
                     }
                     
-                ans = Math.min(ans,  costfornextdeletion +  solve(state^(1 << i), totalbits, l1, l2, s1, s2,memo));
+                ans = Math.min(ans,  costfornextdeletion +  solve(state^(1 << i), totalbits, l1, l2, s1, s2,memo));// xor operation and tested
 
             }
 

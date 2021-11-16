@@ -5,6 +5,7 @@ import java.util.*;
 // 2^32 - 1 = 4294967295 // Maximum value of 32 bit unsigned integer is this
 // IMPORTANT -- Bubble sort
 // Note Array to List and Array to List are not straightforward in JAVA.
+// use List<String> list = ArrayToListConversion(array);  wherethis function is a generic custom function
 // Next Greater element
 //https://www.geeksforgeeks.org/list-array-java/
 //String[] arr = list.stream().toArray(String[] ::new);
@@ -22,6 +23,7 @@ import java.util.*;
 
 // // Add the array to list
 // Collections.addAll(list,array);
+
 
 // // Return the converted List
 // return list;}
@@ -146,6 +148,18 @@ public class WC27P3 {
         }
 
         
+    }
+
+    public static <T> List<T> ArrayToListConversion(T array[]) {
+        // creating the constructor of the List class
+        List<T> list = new ArrayList<>();
+        // using for-each loop to iterate over the array
+        for (T t : array) {
+            // adding each element to the List
+            list.add(t);
+        }
+        // returns the list converted into Array
+        return list;
     }
 
     public static void main(String[] args) {

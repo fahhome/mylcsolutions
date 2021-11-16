@@ -1,6 +1,6 @@
 package leetcode;
 
-// Number Of Provinces
+// Number Of Provinces(Connected Components)
 // IMPORTANT Graphs Adjacency matrix
 public class WC26P3 {
 

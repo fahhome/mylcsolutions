@@ -13,7 +13,7 @@ public class WC32P2 {
 
         ArrayDeque<Integer> q = new ArrayDeque<>();
 
-        Map<Integer,LinkedList<Integer>> map = new HashMap<>();
+        Map<Integer,LinkedList<Integer>> map = new HashMap<>();// Contains indices of processes whose parent is the key
 
         for(int i = 0 ; i < len ; i++){
             int ppidthis = ppid.get(i);

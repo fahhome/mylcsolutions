@@ -27,6 +27,7 @@ public class WC21P3 {
             }
         }
 
+        // Sort the strings in decreasing order  of length and then lexigrophical order
         Comparator<String> cmp = new Comparator<String>() {
 
             @Override
@@ -44,6 +45,8 @@ public class WC21P3 {
         };
 
         Collections.sort(dictionary,cmp);
+
+        // Now instead of this long process, you can use the is subsequence function for the strings.
 
         for(String dstr : dictionary){
 
