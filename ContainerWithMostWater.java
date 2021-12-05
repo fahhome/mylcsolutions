@@ -2,6 +2,8 @@ package leetcode;
 
 
 // Double to Int  --> (int)
+
+// Proof by contradiction 
 public class ContainerWithMostWater {
 
     public int maxArea(int[] height) {

@@ -2,7 +2,7 @@ package leetcode;
 
 import java.util.Stack;
 
-public class LongestPalindromicSubsequence {
+public class LongestPalindromicSubstring {
 
 
     public static String longestPalindrome(String s) {

@@ -4,6 +4,10 @@ import java.util.ArrayDeque;
 import java.util.Queue;
 
 //BFS
+// 1 <=m,n <= 100
+// you can move in 4 directions
+// Time complexity is not 4^10000 and 2^10000(exponential) as it we are using the visited array
+// Time complexity O(mn)
 public class NearestExit {
 
     static boolean isSafe(int row, int col, int rows, int cols, char[][] maze) {
