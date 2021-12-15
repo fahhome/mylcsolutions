@@ -1,6 +1,6 @@
 package leetcode;
 
-// Detailed Explanation in notebook
+// Nice DP Problem
 public class WiggleSubsequence {
 
     public int wiggleMaxLength(int[] nums) {
@@ -8,6 +8,7 @@ public class WiggleSubsequence {
 
         int len = nums.length;
 
+        // 2 colums, [0] will contain considering this ith element is part of the sequence ending with +ve diff
         int [][] dp = new int[len][2];
 
         for(int i = 0; i < len; i++){

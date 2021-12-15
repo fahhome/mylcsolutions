@@ -15,19 +15,15 @@ public class Wordbreak {
 
         visited[start] = 1 ;
 
-        if(start < s.length()){
 
-            int i = start + 1 ;
-            while (i <= s.length()) {
+        int i = start + 1 ;
+        while (i <= s.length()) {
 
-                if(wordDict.contains(s.substring(start,i)) && visited[i] == 0){
-                    dfs(s, wordDict, i, ans, visited);
-                }
-
-                i++;
+            if(wordDict.contains(s.substring(start,i)) && visited[i] == 0){
+                dfs(s, wordDict, i, ans, visited);
             }
 
-
+            i++;
         }
 
 
