@@ -2,7 +2,6 @@ package leetcode;
 
 public class HouseRobberII {
     public static int rob(int[] nums) {
-        int ans = 0;
         int len = nums.length;
 
         int[][] dp = new int[len][len];

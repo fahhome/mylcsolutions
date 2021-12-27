@@ -1,7 +1,7 @@
 package leetcode;
 import java.util.*;
 
-// Use queue = new LinkedList<>() to add or offer null as a level end indicator
+// Use queue = new LinkedList<>() to add or offer null as a level end indicator(Refer PopulatingNextRightPointer.java)
 public class BinaryTreeLevelOrderTraversal {
 
     public List<List<Integer>> levelOrder(TreeNode root) {

@@ -2,7 +2,7 @@ package leetcode;
 import java.util.*;
 
 // https://leetcode.com/problems/search-in-rotated-sorted-array/
-
+// 3 binary searches in a problem
 public class BinarySearchInRotatedArray {
 
     public static int binarySearchWithBounds(int first, int last, int target, int [] nums){
@@ -43,6 +43,7 @@ public class BinarySearchInRotatedArray {
             int mid = first + (last - first) / 2;
             if(target == nums[mid])
                 return mid;
+            // Observation that if this trough element is on the right part then the rightmost element from mid has to be less than nums[mid]
             if (mid+1 < len && mid-1 >= 0 && (nums[mid+1]>nums[mid] && nums[mid-1] > nums[mid] ) ) {
                 indexOfnumsZero = mid;
                 break;
@@ -58,9 +59,9 @@ public class BinarySearchInRotatedArray {
         
         if(indexOfnumsZero == -1){
             l1 = 0;
-            r1 = len-2;
+            r1 = len-1;
             l2 = 0;
-            r2 = len-2;
+            r2 = len-1;
         }else{
             l1= 0; 
             r1= indexOfnumsZero-1;
@@ -79,4 +80,6 @@ public class BinarySearchInRotatedArray {
 
         
     }
+
+
 }
