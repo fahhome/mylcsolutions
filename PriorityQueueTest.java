@@ -9,6 +9,9 @@ public class PriorityQueueTest {
 
     public static void main(String[] args) {
         Queue<PairTest> pq = new PriorityQueue<>((a,b)-> b.j  - a.j);
+        PriorityQueue<Integer> tpq = new PriorityQueue<>((a,b)->{
+            return a - b;
+        });
         pq.add(new PairTest(1, 5));
         pq.add(new PairTest(3, 15));
         pq.add(new PairTest(4, 10));
