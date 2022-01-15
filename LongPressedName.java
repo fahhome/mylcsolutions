@@ -41,3 +41,53 @@ public class LongPressedName {
         System.out.println(isLongPressedName(name, typed));
     }
 }
+
+// Alternate solution
+
+// public boolean isLongPressedName(String name, String typed) {
+//         String build = "";  
+//         int nlen = name.length();
+//         int tlen = typed.length();
+//         int i = 0;
+//         int j = 0;
+        
+//         char prev = '1';
+        
+//         while(i <  nlen && j < tlen){
+            
+//             char nch = name.charAt(i);           
+//             char tch = typed.charAt(j);
+//             if(nch != tch)
+//             {
+//                 while(j < tlen && typed.charAt(j) == prev)
+//                     j++;
+//             }
+            
+//             if(j >= tlen)
+//                 return false;
+//             if(typed.charAt(j) != nch)
+//                 return false;
+            
+//             prev = nch;
+//             i++;
+//             j++;
+            
+//         }
+        
+        
+//         if(i == nlen && j != tlen){
+//             while(j < tlen){
+                
+//                 if(typed.charAt(j) != prev)
+//                     return false;
+//                 j++;
+//             }
+//         }
+        
+//         if( i != nlen && j == tlen)
+//             return false;
+        
+//         return true;
+        
+        
+//     }
