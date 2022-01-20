@@ -17,6 +17,8 @@ public class ZigZagLevelOrder {
         while (!bfs.isEmpty()) {
 
             List<Integer> ansrow = new LinkedList<>();
+
+            // If the nodes added from previous level are 0 then break the bfs
             if (bfs.peek() == null)
                 break;
 

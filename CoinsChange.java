@@ -24,7 +24,7 @@ public class CoinsChange {
 
         int ans = 100000;
 
-        int div = remamt / coins[idx];
+        int div = remamt / coins[idx]; // Maximum number of coins of this coin type possible from the current remamt
 
         for (int i = 0; i <= div; i++) {        
             ans = Math.min(i + dp(coins, remamt - (coins[idx] * i), idx + 1, len, memo), ans );      
