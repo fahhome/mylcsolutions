@@ -14,7 +14,7 @@ public class CourseSchedule {
             return false;
         for (Integer child : adjlist.get(curNode)) {
 
-            if (visited[child] == 1)
+            if (visited[child] == 1) // Only if there is a loop in the current flow of dfs then it is a cycle . 
                 return true;
 
             visited[child] = 1;

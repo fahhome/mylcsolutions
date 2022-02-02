@@ -54,3 +54,36 @@ public class Wordbreak {
         
     }
 }
+
+// Alternate BETTER Approach
+
+// public boolean wbdfs(String s, int len, int idx, List<String> wordDict, int[] memo) {
+
+//     if (idx >= len)
+//         return true;
+
+//     if (memo[idx] != -1)
+//         return memo[idx] == 0 ? false : true;
+
+//     boolean ans = false;
+
+//     int i = 1;
+
+//     while (idx + i <= len) {
+
+//         if (wordDict.contains(s.substring(idx, idx + i)))
+//             ans = ans || wbdfs(s, len, idx + i, wordDict, memo);
+
+//         i++;
+//     }
+
+//     memo[idx] = ((ans == false) ? 0 : 1);
+//     return ans;
+
+// }
+
+// public boolean wordBreak(String s, List<String> wordDict) {
+//         int[] memo = new int[s.length()];
+//         Arrays.fill(memo,-1);
+//         return wbdfs(s,s.length(),0,wordDict,memo);
+//     }

@@ -8,13 +8,11 @@ public class LRUCachePQ {
     int[] keyTimestamps;
     PriorityQueue<Integer> pqkey;
     LinkedHashMap<Integer, Integer> cache;
-    int[] present;
     int timestamp;
 
     public LRUCachePQ(int capacity) {
         cache = new LinkedHashMap<>();
         this.capacity = capacity;
-        present = new int[10001];
         timestamp = 0;
         keyTimestamps = new int[10001];
         Arrays.fill(keyTimestamps, 0);
